@@ -4,7 +4,11 @@
 const ipc = require('electron').ipcRenderer;
 
 const syncMsgBtn = document.getElementById('sendSyncMsgBtn');
+const syncParagraph = document.getElementById('syncReply');
 
 syncMsgBtn.addEventListener('click', function () {
-    
+    const reply = ipc.sendSync('synchronous-message','Testing for response');
+    syncParagraph.innerHTML = reply;
 }); 
+
+
